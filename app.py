@@ -35,18 +35,13 @@ unique_cities = df["City"].unique()
 
 
 
-
-
 # df=pd.read_csv("house_prices_india.csv")
 le=LabelEncoder()
 df["City"]=le.fit_transform(df["City"])
 
 
-
-
 X=df[["City","Square Feet","Bedrooms","Bathrooms"]]
 y=df["Price"]
-
 
 
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=42)
@@ -54,11 +49,7 @@ X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=42
 model=LinearRegression()
 model.fit(X_train,y_train)
 
-
 # pred=model.predict([[le.transform(["Delhi"])[0],2951,2,3]])
-
-
-    
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -74,8 +65,6 @@ def home():
         predicted_price =f" {int(pred_price[0]):,}"
         return render_template('index.html', cities=unique_cities, predicted_price=predicted_price)
     return render_template('index.html', cities=unique_cities)
-
-
 
 
 # @app.route('/output')

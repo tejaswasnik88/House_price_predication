@@ -16,6 +16,7 @@
         <form action="{{ url_for('home') }}" method="POST">
             <label for="city">Select City:</label>
             <select name="city" id="city" required>
+              <option value="">select city</option>
               {% for city in cities %}
               <option value="{{ city }}">{{ city }}</option>
               {% endfor %}
@@ -24,15 +25,15 @@
             <br /><br />
       
             <label for="square_feet">Square Feet: </label>
-            <input type="number" name="square_feet" id="square_feet" required placeholder="Enter Square Feet"/>
+            <input type="number" name="square_feet" id="square_feet" required placeholder="Enter Square Feet" min="400" max="5000"/>
             <br /><br />
       
             <label for="bedrooms">Bedrooms  : </label>
-            <input type="number" name="bedrooms" id="bedrooms" required placeholder="Enter Number of Bedrooms" />
+            <input type="number" name="bedrooms" id="bedrooms" required placeholder="Enter Number of Bedrooms" min="1" max="10" maxlength="2" />
             <br /><br />
       
             <label for="bathrooms">Washroom : </label>
-            <input type="number" name="bathrooms" id="bathrooms" required placeholder="Enter Number of Washroom" />
+            <input type="number" name="bathrooms" id="bathrooms" required placeholder="Enter Number of Washroom" min="1" max="12" maxlength="2"/>
             <br /><br />
       
             <div class="buttons">
@@ -50,39 +51,6 @@
     </div>
 
 
-    <!-- <style>
-        *{
-            background-color: rgb(156, 154, 158);
-        }
-        .head{
-            background-color: rgb(184, 161, 131);
-            width: 100%;
-            height: 5vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .body{
-            display: flex;
-            justify-content:end;
-            align-items: center;
-            gap: 10px;
-            flex-direction: column;
-        }
-        h2{
-            background-color: aqua;
-            color: black;
-        }
-
-        button{
-            background-color: rgb(180, 175, 175);
-            color: black;
-            border-radius: 8px;
-            width: 150px;
-            height: 35px;
-        }
-
-    </style> -->
 
    
   </body>
