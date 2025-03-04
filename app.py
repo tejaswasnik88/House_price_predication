@@ -71,7 +71,7 @@ def home():
        
         pred_price = model.predict([[le.transform([selected_city])[0], square_feet, bedrooms, bathrooms]])
         
-        predicted_price = int(pred_price[0])
+        predicted_price =f" {int(pred_price[0]):,}"
         return render_template('index.html', cities=unique_cities, predicted_price=predicted_price)
     return render_template('index.html', cities=unique_cities)
 

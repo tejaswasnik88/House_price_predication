@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css">
     <title>Document</title>
   </head>
   <body>
     <div class="head">
-        <h1>Check House  Price Based On The Cities And Bedrooms</h1>
+        <h1>Explore House Prices by City and Bedroom Count</h1>
     </div><br><br>
     
 
@@ -22,29 +23,34 @@
       
             <br /><br />
       
-            <label for="square_feet">Square Feet:</label>br
-            <input type="number" name="square_feet" id="square_feet" required />
+            <label for="square_feet">Square Feet: </label>
+            <input type="number" name="square_feet" id="square_feet" required placeholder="Enter Square Feet"/>
             <br /><br />
       
-            <label for="bedrooms">Number of Bedrooms:</label>
-            <input type="number" name="bedrooms" id="bedrooms" required />
+            <label for="bedrooms">Bedrooms  : </label>
+            <input type="number" name="bedrooms" id="bedrooms" required placeholder="Enter Number of Bedrooms" />
             <br /><br />
       
-            <label for="bathrooms">Number of Bathrooms:</label>
-            <input type="number" name="bathrooms" id="bathrooms" required />
+            <label for="bathrooms">Washroom : </label>
+            <input type="number" name="bathrooms" id="bathrooms" required placeholder="Enter Number of Washroom" />
             <br /><br />
       
-            <button type="submit">Get Prediction</button>
+            <div class="buttons">
+              <button type="submit">Get Prediction</button> &nbsp; &nbsp;
+            <button type="reset">Clear</button>
+            </div>
           </form>
       
           {% if predicted_price %}
-          <h2>Predicted Price: ₹ {{ predicted_price }}</h2>
+          <div class="output">
+            <h2>Predicted Price: ₹ {{ predicted_price }}</h2>
+          </div>
           {% endif %}
       
     </div>
 
 
-    <style>
+    <!-- <style>
         *{
             background-color: rgb(156, 154, 158);
         }
@@ -76,7 +82,7 @@
             height: 35px;
         }
 
-    </style>
+    </style> -->
 
    
   </body>
