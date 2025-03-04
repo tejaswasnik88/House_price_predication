@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="head">
+        <h1>Check House  Price Based On The Cities And Bedrooms</h1>
+    </div><br><br>
+    
+
+    <div class="body">
+        <form action="{{ url_for('home') }}" method="POST">
+            <label for="city">Select City:</label>
+            <select name="city" id="city" required>
+              {% for city in cities %}
+              <option value="{{ city }}">{{ city }}</option>
+              {% endfor %}
+            </select>
+      
+            <br /><br />
+      
+            <label for="square_feet">Square Feet:</label>br
+            <input type="number" name="square_feet" id="square_feet" required />
+            <br /><br />
+      
+            <label for="bedrooms">Number of Bedrooms:</label>
+            <input type="number" name="bedrooms" id="bedrooms" required />
+            <br /><br />
+      
+            <label for="bathrooms">Number of Bathrooms:</label>
+            <input type="number" name="bathrooms" id="bathrooms" required />
+            <br /><br />
+      
+            <button type="submit">Get Prediction</button>
+          </form>
+      
+          {% if predicted_price %}
+          <h2>Predicted Price: ₹ {{ predicted_price }}</h2>
+          {% endif %}
+      
+    </div>
+
+
+    <style>
+        *{
+            background-color: rgb(156, 154, 158);
+        }
+        .head{
+            background-color: rgb(184, 161, 131);
+            width: 100%;
+            height: 5vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .body{
+            display: flex;
+            justify-content:end;
+            align-items: center;
+            gap: 10px;
+            flex-direction: column;
+        }
+        h2{
+            background-color: aqua;
+            color: black;
+        }
+
+        button{
+            background-color: rgb(180, 175, 175);
+            color: black;
+            border-radius: 8px;
+            width: 150px;
+            height: 35px;
+        }
+
+    </style>
+
+   
+  </body>
+</html>
